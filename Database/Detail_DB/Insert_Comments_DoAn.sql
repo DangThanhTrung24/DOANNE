@@ -7,5 +7,12 @@
 (N'Bìa hơi chóc', 4, 6, 9, CAST(N'2023-9-25' AS Date), 0),
 (N'Lần sau sẽ ủng hộ', 5, 7, 8, CAST(N'2023-9-25' AS Date), 1)
 
+INSERT INTO Comments VALUES
+(N'Sách hay lắm nè', 5, 2, 8, CAST(N'2023-9-25' AS Date), 1),
+(N'Sách hay lắm nè', 4, 3, 8, CAST(N'2023-9-25' AS Date), 1),
+(N'Sách hay lắm nè', 4, 4, 8, CAST(N'2023-9-25' AS Date), 1),
+(N'Sách hay lắm nè', 4, 5, 8, CAST(N'2023-9-25' AS Date), 1),
+(N'Sách hay lắm nè', 4, 6, 8, CAST(N'2023-9-25' AS Date), 1),
+(N'Sách hay lắm nè', 4, 7, 8, CAST(N'2023-9-25' AS Date), 1)
 
 select * from Comments
