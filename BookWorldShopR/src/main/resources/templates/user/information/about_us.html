@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+            ~{::main},
+            ~{::#aside},
+            ~{::#material},
+            ~{::#breadcums}
+            )}">
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="breadcrumb-wrap">
+							<nav aria-label="breadcrumb">
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">About us</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+
+	<th:block id="aside">
+	</th:block>
+
+	<main>
+
+
+		<div id="content" class="col-sm-12">
+			<h1>Thông tin</h1>
+			<div class="about-us clearfix shop-content">
+			<div class="row mt-3">
+				<div class="col-sm-6">
+					<div class="cms-block ">
+						<h4>Chào mừng đến với <strong><strong>BooksWorldRShop</strong></strong>!</h4>
+						<p>
+						<strong><strong><strong>BooksWorldRShop</strong></strong></strong> là một cửa hàng sách trực tuyến với sứ mệnh hỗ trợ tài chính cho các cửa hàng sách độc lập, địa phương.
+						Chúng tôi tin rằng các hiệu sách là điều cần thiết cho một nền văn hóa lành mạnh. Đó là nơi tác giả có thể kết nối với độc giả, nơi chúng tôi khám phá những nhà văn mới, nơi trẻ em bị cuốn hút vào cảm giác hồi hộp khi đọc có thể kéo dài suốt đời. Họ cũng là những điểm neo đậu cho các khu dân cư và cộng đồng của chúng tôi.
+						Khi ngày càng có nhiều người mua sách trực tuyến, chúng tôi muốn tạo ra một cách dễ dàng, thuận tiện để bạn có thể mua sách của mình và ủng hộ các hiệu sách cùng một lúc.
+						Nếu bạn muốn tìm một cửa hàng sách địa phương cụ thể để hỗ trợ, hãy tìm họ trên bản đồ của chúng tôi và họ sẽ nhận được toàn bộ lợi nhuận từ đơn đặt hàng của bạn. Nếu không, đơn đặt hàng của bạn sẽ đóng góp vào tổng thu nhập sẽ được phân bổ đồng đều giữa các hiệu sách độc lập (ngay cả những hiệu sách không sử dụng <strong><strong>BooksWorldRShop</strong></strong>).
+						Chúng tôi cũng hỗ trợ bất kỳ ai ủng hộ sách thông qua chương trình liên kết của chúng tôi , chương trình này sẽ trả hoa hồng 10% cho mỗi lần bán và tặng 10% tương ứng cho các hiệu sách độc lập. Nếu bạn là một tác giả, một trang web hoặc tạp chí, có một câu lạc bộ sách, một tổ chức muốn giới thiệu sách hoặc thậm chí chỉ là một người yêu sách với nguồn cấp dữ liệu Instagram, bạn có thể đăng ký để trở thành một chi nhánh, bắt đầu cửa hàng của riêng bạn và được khen thưởng vì bạn ủng hộ sách. <strong><strong>BooksWorldRShop</strong></strong> muốn tặng lại cho tất cả những người quảng bá sách, tác giả và nhà sách độc lập!
+						Theo thiết kế, chúng tôi tặng hơn 75% tỷ suất lợi nhuận của mình cho các cửa hàng, ấn phẩm, tác giả và những người khác, những người tạo nên nền văn hóa truyền cảm hứng và thịnh vượng xung quanh sách!
+						Chúng tôi hy vọng rằng <strong><strong>BooksWorldRShop</strong></strong> có thể giúp củng cố hệ sinh thái mong manh và lợi nhuận xung quanh việc bán sách và giữ cho các hiệu sách địa phương trở thành một phần không thể thiếu trong văn hóa và cộng đồng của chúng tôi.
+						<strong><strong>BooksWorldRShop</strong></strong> là một công ty vì lợi ích - một công ty cống hiến vì lợi ích công cộng.
+						 	<br>
+						</p>
+					</div>
+				</div>
+
+				<div class="col-sm-6 mt-5">
+					<img title="cms-img" th:src="@{/assets/img/banner/about-banner.jpeg}"
+						alt="cms-img" class="img-responsive">
+				</div>
+				</div>
+				<div class="col-sm-12 row mt-3">
+					<div class="cms-block">
+						<p>
+							<strong>Về hàng hóa</strong> <br> <br> Công ty <strong>BooksWorldRShop</strong>
+							chuyên kinh doanh: sách quốc văn, ngoại văn, văn hóa phẩm, văn
+							phòng phẩm, dụng cụ học tập, quà lưu niệm, đồ chơi dành cho trẻ
+							em… Một số Nhà sách trực thuộc Công ty <strong>BooksWorldRShop</strong> còn kinh doanh các
+							mặt hàng siêu thị như: hàng tiêu dùng, hàng gia dụng, hóa mỹ
+							phẩm… <br> <br> Sách quốc văn với nhiều thể loại đa
+							dạng như sách giáo khoa – tham khảo, giáo trình, sách học ngữ, từ
+							điển, sách tham khảo thuộc nhiều chuyên ngành phong phú: văn học,
+							tâm lý – giáo dục, khoa học kỹ thuật, khoa học kinh tế - xã hội,
+							khoa học thường thức, sách phong thủy, nghệ thuật sống, danh
+							ngôn, sách thiếu nhi, truyện tranh, truyện đọc, từ điển, công
+							nghệ thông tin, khoa học – kỹ thuật, nấu ăn, làm đẹp... của nhiều
+							Nhà xuất bản, nhà cung cấp sách có uy tín như: NXB Trẻ, Giáo Dục,
+							Kim Đồng, Văn hóa -Văn Nghệ, Tổng hợp TP.HCM, Chính Trị Quốc Gia;
+							Công ty Đông A, Nhã Nam, Bách Việt, Alphabook, Thái Hà, Minh Lâm,
+							Đinh Tị, Minh Long, TGM, Sáng Tạo Trí Việt, Khang Việt, Toàn
+							Phúc… <br> <br> Sách ngoại văn bao gồm: từ điển, giáo
+							trình, tham khảo, truyện tranh thiếu nhi , sách học ngữ, từ vựng,
+							ngữ pháp, luyện thi TOEFL, TOEIC, IELS…được nhập từ các NXB nước
+							ngoài như: Cambridge, Mc Graw-Hill, Pearson Education, Oxford,
+							Macmillan, Cengage Learning… <br> <br> Văn phòng phẩm,
+							dụng cụ học tập, đồ chơi dành cho trẻ em, hàng lưu niệm… đa dạng,
+							phong phú, mẫu mã đẹp, chất lượng tốt, được cung ứng bởi các công
+							ty, nhà cung cấp uy tín như: Thiên Long, XNK Bình Tây, Hạnh
+							Thuận, Ngô Quang, Việt Văn, Trương Vui, Hương Mi, Phương Nga,
+							Việt Tinh Anh, Chăm sóc trẻ em Việt, Mẹ và em bé… <br> <br>
+
+							Cùng với việc phát hành độc quyền nhiều ấn bản các loại của các
+							Nhà xuất bản là năng lực in ấn, sản xuất cung ứng nguồn hàng của
+							Xí nghiệp in <strong>BooksWorldRShop</strong>, đã giúp Công ty luôn chủ động được nguồn
+							hàng, nhất là các mặt hàng độc quyền như: lịch bloc, tập học
+							sinh, sổ tay cao cấp, agenda, văn phòng phẩm, dụng cụ học tập…
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+	
+	<th:block id="material">
+
+	</th:block>
+	
+</body>
+</html>

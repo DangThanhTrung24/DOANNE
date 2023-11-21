@@ -1,0 +1,25 @@
+<div class="account-main row col-8 m-auto">
+		<div class="col-lg-4">
+		<h5 class="font-weight-bold">Tài Khoản</h5>
+		<ul class="">
+			<li><a class="text-secondary" th:href="@{/account/information}">Thông tin tài khoản</a></li>
+			
+			<li><a class="text-secondary" th:href="@{/account/address}">Sổ địa chỉ</a></li>
+			<li><a class="text-secondary" th:href="@{/account/favorite}">Sản phẩm yêu thích</a></li>
+		</ul>
+		</div>
+		<div class="col-lg-4">
+		<h5 class="font-weight-bold">Đơn Hàng</h5>
+		<ul class="">
+			<li><a class="text-secondary" th:href="@{/account/order}">Xem lịch sử đơn hàng</a></li>
+			<li><a class="text-secondary" th:href="@{/account/order/search}">Tìm kiếm đơn hàng</a></li>
+		</ul>
+		</div>
+		<div class="col-lg-4">
+		<h5 class="font-weight-bold">Hoạt Động</h5>
+		<ul class="">
+			<li><a class="text-secondary" th:href="@{/account/change-password}">Đổi mật khẩu</a></li>
+			<li><a class="text-secondary" th:href="@{/logout}">Đăng xuất</a></li>
+		</ul>
+		</div>
+	</div>

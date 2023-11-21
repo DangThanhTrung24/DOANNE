@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Search</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	</th:block>
+
+	<main>
+		<form id="formPage" action="" method="get" class="row">
+
+							<div class="col-lg-3">
+                   			<th:block th:if="${listProduct.content.size != 0}">
+								<div th:replace="user/list/sidebar-product2.html"></div>
+							</th:block>
+                   				
+                   				<div th:replace="user/home/_bestseller2.html"></div>
+                   			</div>
+                   			<div class="col-lg-9">
+								<div th:replace="/user/list/list-search-product2.html"></div>
+							</div>
+							
+		</form>
+	</main>
+
+</body>
+<th:block id="material">
+	<script src="/assets/user/javascript/list-product.js"></script>
+</th:block>
+</html>

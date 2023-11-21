@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Reset Password</title>
+
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="breadcrumb-wrap">
+							<nav aria-label="breadcrumb">
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+									<li class="breadcrumb-item"><a th:href="@{/account}">Account</a></li>
+									<li class="breadcrumb-item active" aria-current="page">search</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</th:block>
+	<th:block id="aside">
+		<div th:replace="/user/account/account_aside.html"></div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9 m-auto">
+			<div class="alert alert-dismissible"
+				th:classappend="${alertModel.alert}"
+				th:style="${alertModel.display?'display: block;':'display:none'}">
+				[[${alertModel.content}]]
+				<button type="button" class="close" data-dismiss="alert">×</button>
+			</div>
+			
+			<form th:action="@{/account/order/search}" method="post"
+				class="login-reg-form-wrap mt-md-34 mt-sm-34">
+				
+				<h2>Tìm kiếm đơn hàng</h2>
+			<p>Nhập mã đơn hàng bạn muốn tìm kiếm và nhấn nút search để xem
+				chi tiết đơn hàng.</p>
+				
+				<fieldset id="account">
+					<div class="form-group required" style="display: none;">
+						<label class="col-sm-2 control-label">Customer Group</label>
+						<div class="col-sm-10">
+							<div class="radio">
+								<label> <input type="radio" name="customer_group_id"
+									value="1" checked="checked" /> Default
+								</label>
+							</div>
+						</div>
+					</div>
+						
+						<div class="single-input-item">
+						<label>Nhập Mã</label>
+							<input class="form-control" th:value="${code}" name="code">
+					</div>
+				</fieldset>
+
+				<div class="buttons clearfix mt-3">
+				<div class="pull-left">
+						<a th:href="@{/account}" class="sqr-btn">Back</a>
+					</div>
+					<div class="pull-right">
+						<input type="submit" value="Tiếp tục" class="sqr-btn">
+					</div>
+				</div>
+			</form>
+		</div>
+	</main>
+</body>
+<th:block id="material">
+	<script src="/assets/user/angular/register.js"></script>
+</th:block>
+</html>

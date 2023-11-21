@@ -1,0 +1,92 @@
+<div id="content" ng-app="contact-app" ng-controller="contact-ctrl">
+		 
+		 <div class="comment-section">
+             <h3 class="font-weight-bold">customer reviews </h3>
+             
+                 <ul ng-repeat="item in pager.items" class="col-lg-12">
+                 
+                  <li> <div class="comment-body">
+                       <h5 class="comment-author font-weight-bold">{{item.name}}</h5>
+                       <div class="comment-post-date">{{item.date | date:'dd/MM/yyyy'}}</div>
+                       <p>{{item.content}}</p>
+                       </div>
+                  </li>
+                  </ul>
+                  <nav aria-label="Page navigation example" style="margin-left: 17px">
+                  <ul class="pagination mb-3" id="pagination">
+ 			       <li class="page-item"><a class="page-link" ng-click="pager.prev()"><i class="fa fa-backward"></i></a></li>
+   				   <li class="page-item"><a class="page-link font-weight-bold" >{{pager.page+1}}</a></li>
+    			   <li class="page-item"><a class="page-link" ng-click="pager.next()"><i class="fa fa-forward"></i></a></li>
+ 				  </ul>
+ 				  </nav>
+           </div>
+                                    <!-- comment area start -->
+	
+		
+		<!-- contact area start -->
+        <div class="contact-area pb-34 pb-md-18 pb-sm-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="contact-message">
+                            <h2>tell us your project</h2>
+                            
+                            <div id="notification" style="display: none;"
+								class="alert alert-dismissible">
+
+								<button type="button" class="close" data-dismiss="alert">×</button>
+							</div>
+							
+                            <form id="contact-form" action="http://demo.hasthemes.com/galio-v6/galio/assets/php/mail.php" method="post" class="contact-form">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <input name="name" placeholder="Name *" type="text" id="input-name" >    
+                                    </div>
+                                   
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <input name="email" placeholder="Email *" type="email" id="input-email">    
+                                    </div>
+                                    
+                                <div class="col-12">
+                                        <div class="contact2-textarea text-center">
+                                            <textarea placeholder="Message *" name="message"  class="form-control2" id="input-review"></textarea>     
+                                        </div>   
+                                        <div class="contact-btn">
+                                            <button class="sqr-btn" type="submit" th:onclick="addContact()">Send Message</button> 
+                                        </div> 
+                                    </div> 
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <p class="form-messege"></p>
+                                    </div>
+                                </div>
+                            </form>    
+                        </div> 
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-info mt-md-28 mt-sm-28">
+                            <h2>contact us</h2>
+                            <p> Hello everyone have a nice day</p>
+                            <ul>
+                                <li><i class="fa fa-fax"></i> Address:  [[${information.address}]]</li>
+                                <li><i class="fa fa-phone"></i> [[${information.email}]]</li>
+                                <li><i class="fa fa-envelope-o"></i> [[${information.phone}]]</li>
+                            </ul>
+                            <div class="working-time">
+                                <h3>Working hours</h3>
+                                <p><span>Monday – Sunday:</span>[[${information.timeopen}]]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contact area end -->
+
+        <!-- map area start -->
+        <div class="map-area-wrapper">
+            <div class="container">
+                    	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31347.552395864263!2d106.58795477431642!3d10.853791500000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b684ce076f3%3A0x4da1cf0078f423fa!2zRlBUIFBvbHl0ZWNobmljIEjhu5MgQ2jDrSBNaW5oIC0gVG_DoCBU!5e0!3m2!1svi!2s!4v1698841008355!5m2!1svi!2s" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <!-- map area end -->
+		</div>

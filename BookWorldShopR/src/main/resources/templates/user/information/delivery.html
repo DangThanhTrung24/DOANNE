@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{/user/layout/_form :: dynamic(
+            ~{::main},
+            ~{::#aside},
+            ~{::#material},
+            ~{::#breadcums}
+            )}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <th:block id="breadcums">
+      <div class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="breadcrumb-wrap">
+							<nav aria-label="breadcrumb">
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Delivery</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </th:block>
+
+    <th:block id="aside">
+    </th:block>
+
+    <main>
+      
+       
+        <div id="content" class="col-sm-12">
+            <h1>Thông tin</h1>
+            <div class="about-us clearfix shop-content row">
+            
+        <div class="col-sm-6">
+          <div class="cms-block">
+            <h4>Thông tin đóng gói, vận chuyển hàng</h4>
+            <p>
+                Với đa phần đơn hàng, BooksWorldRShop.com cần vài giờ làm việc để kiểm tra thông tin và đóng gói hàng. Nếu các sản phẩm đều <strong>có sẵn hàng</strong>, BooksWorldRShop.com sẽ nhanh chóng <strong>bàn giao cho đối tác vận chuyển</strong>. Nếu đơn hàng có <strong>sản phẩm sắp phát hành</strong>, BooksWorldRShop.com sẽ <strong>ưu tiên giao những sản phẩm có hàng trước</strong> cho Quý khách hàng. <br>
+
+                Trong một số trường hợp, hàng nằm <strong>không có sẵn tại kho gần nhất, thời gian giao hàng có thể chậm hơn so với dự kiến do điều hàng</strong>. Các phí vận chuyển phát sinh, BooksWorldRShop.com sẽ <strong>hỗ trợ hoàn toàn.</strong> <br>
+                
+                Thời gian giao hàng <strong>không tính</strong> thứ 7, Chủ nhật, các ngày Lễ, Tết và không bao gồm tuyến huyện đảo xa. <br> 
+                
+                THỜI GIAN VÀ CHI PHÍ GIAO HÀNG TẠI TỪNG KHU VỰC TRONG LÃNH THỔ VIỆT NAM:<br>
+                
+                <strong>1. Nội thành TP.HCM và Hà Nội</strong> <br>
+                
+                Thời gian: 1-2 ngày<br>
+                Chi phí: 15.000đ/ đơn hàng (không giới hạn giá trị)<br>
+                
+                <strong>2. Các tỉnh thành khác</strong> <br>
+                
+                Thời gian: 2-3 ngày<br>
+                Chi phí: 30.000đ/ đơn hàng (không giới hạn giá trị)<br>
+               
+            </p>
+          </div>
+        </div>  
+        <div class="col-sm-6">
+          <img title="cms-img" src="https://vantaihungthinh.vn/vnt_upload/news/07_2018/17/chuyen_hang_hoa_bang_may_bay.jpg" alt="cms-img" class="img-responsive">
+        </div>
+      </div></div>
+      
+        
+      
+    </main>
+
+    <th:block id="material">
+
+	</th:block>
+
+  </body>
+</html>

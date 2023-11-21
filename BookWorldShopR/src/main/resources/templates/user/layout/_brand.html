@@ -1,0 +1,29 @@
+<div class="brand-area pb-30 pt-4 pt-md-26 pt-sm-26 mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title mb-30">
+                            <div class="title-icon">
+                                <i class="fa fa-crop"></i>
+                            </div>
+                            <h3>Popular Manufacturer</h3>
+                        </div> <!-- section title end -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="brand-active slick-padding slick-arrow-style">
+                        
+                        <th:block th:each="item: ${manufacturer}">
+                        
+                            <div class="brand-item text-center">
+                                <a href="#"><img th:src="@{|/assets/img/imageProducts/${item.logo}|}" alt="" height="100px"></a>
+                            </div>
+                           
+                        </th:block> 
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="breadcrumb-wrap">
+							<nav aria-label="breadcrumb">
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Success</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+	<th:block id="aside">
+		<div th:replace="/user/layout/_aside.html"></div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-lg-6 m-auto">
+			<h1 class="font-weight-bold text-danger">[[${alert}]]</h1>
+			<p class="font-weight-bold my-3">[[${message}]]</p>
+			<p>
+				Tiến hành <a style="color: #ffc843;" th:href="@{/login}">đăng nhập</a> nếu bạn đã có tài khoản!
+			</p>
+			<p>
+				Bạn là khách hàng mới? <a style="color: #ffc843;" th:href="@{/register}">Đăng ký</a> một tài khoản ngay!
+			</p>
+
+			<p>Trân trọng cảm ơn!</p>
+			<div class="buttons">
+				<div class="pull-right">
+					<a href="" class="sqr-btn">Tiếp tục</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+<th:block id="material">
+	<script src="/assets/user/angular/register.js"></script>
+</th:block>
+</html>

@@ -1,0 +1,52 @@
+<div class="category-toggle-wrap">
+	<div class="category-toggle">
+		category
+		<div class="cat-icon">
+			<i class="fa fa-angle-down"></i>
+		</div>
+	</div>
+	<nav class="category-menu category-style-2">
+
+
+
+		<ul>
+			<th:block th:each="item: ${categories}">
+			<li class="menu-item-has-children">
+				<a th:href="@{|/products/${item.Namesearch}|}">
+					<i class="fa fa-bars"></i>
+						[[${item.name}]]
+						<th:block th:if="${!item.listMenuOne.empty}"><i class="fa fa-chevron-right"></i></th:block>
+				</a> 
+				
+				<th:block th:if="${!item.listMenuOne.empty}">
+				
+				<ul class="category-mega-menu">
+					
+					<th:block th:each="item2: ${item.listMenuOne}">
+					
+					<li class="menu-item-has-children"><a
+						th:href="@{|/products/${item.Namesearch}|}">[[${item2.name}]]</a>
+						
+						
+						<th:block th:each="item3: ${item2.listMenuTwo}">
+						<ul>
+							<li><a th:href="@{|/products/${item.Namesearch}|}">[[${item3.name}]]</a></li>
+						</ul>
+						</th:block>
+						
+						
+					</li>
+					
+					</th:block>
+					
+				</ul>  
+				
+				</th:block>
+				
+			</li>
+			</th:block>
+		</ul>
+
+
+	</nav>
+</div>

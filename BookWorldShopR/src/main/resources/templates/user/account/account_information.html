@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="breadcrumb-wrap">
+							<nav aria-label="breadcrumb">
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+									<li class="breadcrumb-item"><a th:href="@{/account}">account</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Profile</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+	<th:block id="aside">
+		<div th:replace="/user/account/account_aside"></div>
+	</th:block>
+
+	<main>
+		<div id="" class="col-lg-9 m-auto" ng-app="information-app" ng-controller="information-ctrl">
+		
+			<form class="login-reg-form-wrap">
+				<fieldset>
+					<legend>Thông Tin Tài Khoản</legend>
+					<div class="form-group required row" id="divFullName">
+						<label id="lblFullName" class="col-sm-2 control-label">Họ và tên </label>
+						<div class="col-sm-12">
+							<input type="text" id="fullName" ng-model="form.fullName" placeholder="Vui lòng nhập họ và tên"
+								class="form-control" />
+							<div id="errorFullName" style="color: #dc3545;"></div>
+						</div>
+					</div>
+					<div class="form-group row ">
+						<label class="col-sm-2 control-label">Ngày sinh</label>
+						<div class="col-sm-12">
+							<input type="date" ng-model="form.birthday" id="birthday" class="form-control" />
+						</div>
+					</div>
+				<div class="form-group row">
+    <label class="col-sm-3 control-label">Giới tính</label>
+    <div class="col-sm-9">
+        <label>
+            <input type="radio" ng-model="form.gender" ng-value="1"> Nam
+        </label>
+        <label class="ml-3">
+            <input type="radio" ng-model="form.gender" ng-value="0"> Nữ
+        </label>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-3 control-label">Đăng Kí nhận bản tin</label>
+    <div class="col-sm-9">
+        <label >
+            <input type="radio" ng-model="form.news" ng-value="1"> Yes
+        </label>
+        <label class="ml-3">
+            <input type="radio" ng-model="form.news" ng-value="0"> No
+        </label>
+    </div>
+</div>
+
+				</fieldset>
+				<div class="buttons clearfix mt-3">
+					<div class="pull-left">
+						<a th:href="@{/account}" class="sqr-btn">Back</a>
+					</div>
+					<div class="pull-right">
+						<input type="button" ng-click="update()" value="Update" class="sqr-btn" />
+					</div>
+				</div>
+			</form>
+		
+		</div>
+	</main>
+
+</body>
+<th:block id="material">
+	<script src="/assets/user/angular/information-app.js"></script>
+</th:block>
+</html>

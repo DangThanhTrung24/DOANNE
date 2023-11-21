@@ -1,0 +1,250 @@
+<div class="m-auto">
+<h2 class="text-danger font-weight-bold">Search [[${title}]]</h2>
+	<!-- <label class="control-label" for="input-search">Search Criteria</label> -->
+	<div class="row search_info mt-2">
+		<div class="col-sm-9">
+			<input type="text" th:value="${name}" name="namePrd"
+				placeholder="Tên sản phẩm" id="input-search" class="form-control">
+		</div>
+		<div class="col-sm-3">
+			<select name="category" class="form-control">
+				<option value="">Danh Mục</option>
+				<th:block th:each="item: ${listCategory}">
+					<option th:selected="${cate== '' + item.Namesearch}"
+						th:value="${item.Namesearch}">[[${item.name}]]</option>
+				</th:block>
+			</select>
+		</div>
+	</div>
+
+	<input type="submit" value="Tìm kiếm" id="button-search"
+		class="btn btn-danger mt-3">
+	<h3 class="search-criteria my-3">Danh sách sản phẩm tìm thấy</h3>
+
+	<th:block th:if="${listProduct.content.size == 0}">
+		<p>Không có sản phẩm phù hợp với từ khóa tìm kiếm của bạn.</p>
+	</th:block>
+</div>
+<!-- product main wrap start -->
+          <th:block th:if="${listProduct.content.size != 0}">
+          
+          
+                        <div class="shop-banner img-full">
+                            <img src="/assets/img/banner/banner_static1.jpg" alt="" height="250px">
+                        </div>
+                        <!-- product view wrapper area start -->
+                        <div class="shop-product-wrapper pt-34">
+                            <!-- shop product top wrap start -->
+                            <div class="shop-top-bar">
+                                <div class="row">
+                                    <div class="col-lg-7 col-md-6">
+                                        <div class="top-bar-left">
+                                            <div class="product-view-mode mr-70 mr-sm-0">
+                                                <a class="active" href="#" data-target="grid"><i class="fa fa-th"></i></a>
+                                                <a href="#" data-target="list"><i class="fa fa-list"></i></a>
+                                            </div>
+                                            <div class="product-amount">
+                                                <p>Showing 1–9 of [[${listProduct.totalElements}]] results  ([[${listProduct.totalPages}]] page)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-6">
+                                        <div class="top-bar-right">
+                                            <div class="product-short">
+                                                <p>Sort By : </p>
+                                                
+                                                <select id="input-sort" class="nice-select" name="sort" onchange="this.form.submit()">
+                                                    <option value="0" th:selected="${sort == '0'}">Default</option>
+                                                    <option value="1" th:selected="${sort == '1'}">Name (A - Z)</option>
+                                                    <option value="2" th:selected="${sort == '2'}">Name (Z - A)</option>
+                                                    <option value="3" th:selected="${sort == '3'}">Price (Low &gt; High)</option>
+                                                    <option value="4" th:selected="${sort == '4'}">Price (High &gt; Low)</option>
+                                                </select>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- shop product top wrap start -->
+                            
+                            
+                            <!-- product item start -->
+                            <div class="shop-product-wrap grid row">
+                            
+                            
+                             <th:block th:each="item: ${listProduct.content}">
+                            
+                            
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <!-- product single grid item start -->
+                                    <div class="product-item fix mb-30">
+                                        <div class="product-thumb">
+                                            <a th:href="@{|/product/${item.product.Namesearch}|}">
+                                                <img th:src="@{|/assets/img/imageProducts/${item.product.image1}|}" class="img-pri" alt="" height="240px">
+                                                <img th:src="@{|/assets/img/imageProducts/${item.product.image5}|}" class="img-sec" alt="" height="240px">
+                                            </a>
+                                            
+                                            <th:block th:if="${item.product.sales != 0}">
+                                            <div class="product-label">
+                                                <span>sale</span>
+                                            </div>
+                                            </th:block>
+                                            
+                                            <div class="product-action-link">
+                                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                                <a th:href="@{|/product/${item.product.Namesearch}|}" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a th:href="@{|/product/${item.product.Namesearch}|}">[[${item.product.name}]]</a></h4>
+                                            <div class="pricebox">
+                                            
+                                            
+                                            	    <div class="row">
+                                                        <div class="col-lg-8">
+                                                        		<th:block th:if="${item.product.sales != 0}">
+																	<span style="text-decoration: line-through;">[[${#numbers.formatInteger(item.product.sales,3,'POINT')}]]₫</span>
+																</th:block>
+                                                       	</div>
+                                                        <div class="col-lg-4 ">			
+                                                        		<span class="regular-price ">[[${#numbers.formatInteger(item.product.price,3,'POINT')}]]₫</span>
+                                                        </div>
+                                                    </div>
+                                                
+                                                
+                                                <div class="ratings">
+                                                    
+                                                             	<th:block th:if="${item.totalStar != 0}">
+                                                            	<th:block th:each="i: ${#numbers.sequence(1, item.totalStar)}"> 
+                                                            	
+																<span class="fa fa-stack">
+																	<i class="fa fa-star fa-stack-1x"></i>
+																	<i class="fa fa-star-o fa-stack-1x"></i>
+																</span>
+														 
+																</th:block>
+														 		</th:block> 
+														 
+																<th:block th:if="${item.totalStar != 5}">
+																<th:block th:each="i: ${#numbers.sequence(1, 5 - item.totalStar)}"> 
+																
+																	<span class="fa fa-stack">	
+																		<i class="fa fa-star-o fa-stack-1x"></i>
+																	</span>
+																	
+															    </th:block>
+																</th:block>
+                                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- product single grid item end -->
+                                    <!-- product single list item start -->
+                                    <div class="product-list-item mb-30">
+                                        <div class="product-thumb">
+                                            <a href="product-details.html">
+                                                <img th:src="@{|/assets/img/imageProducts/${item.product.image1}|}" class="img-pri" alt="" height="275px">
+                                                <img th:src="@{|/assets/img/imageProducts/${item.product.image2}|}" class="img-sec" alt="" height="275px">
+                                            </a>
+                                             
+                                            <th:block th:if="${item.product.sales != 0}">
+                                            <div class="product-label">
+                                                <span>sale</span>
+                                            </div>
+                                            </th:block>
+                                            
+                                        </div>
+                                        <div class="product-list-content">
+                                            <h3><a th:href="@{|/product/${item.product.Namesearch}|}">[[${item.product.name}]]</a></h3>
+                                            <div class="ratings">
+                                                
+                                                             	<th:block th:if="${item.totalStar != 0}">
+                                                            	<th:block th:each="i: ${#numbers.sequence(1, item.totalStar)}"> 
+                                                            	
+																<span class="fa fa-stack">
+																	<i class="fa fa-star fa-stack-1x"></i>
+																	<i class="fa fa-star-o fa-stack-1x"></i>
+																</span>
+														 
+																</th:block>
+														 		</th:block> 
+														 
+																<th:block th:if="${item.totalStar != 5}">
+																<th:block th:each="i: ${#numbers.sequence(1, 5 - item.totalStar)}"> 
+																
+																	<span class="fa fa-stack">	
+																		<i class="fa fa-star-o fa-stack-1x"></i>
+																	</span>
+																	
+															    </th:block>
+																</th:block>
+                                                       
+                                            </div>
+                                            <div class="pricebox">
+                                            
+                                            	    
+                                                   		<th:block th:if="${item.product.sales != 0}">
+														<span class="old-price"><del>[[${#numbers.formatInteger(item.product.sales,3,'POINT')}]]₫</del></span>
+														</th:block>
+                                                   		<span class="regular-price ">[[${#numbers.formatInteger(item.product.price,3,'POINT')}]]₫</span>
+                                                
+                                                
+                                            </div>
+                                            <p th:text="${#strings.length(item.product.description) > 100 ? #strings.substring(item.product.description, 0, 250) + '...' : item.product.description}"></p>
+                                            <div class="product-list-action-link">
+                                                <a class="buy-btn" th:href="@{|/product/${item.product.Namesearch}|}" data-toggle="tooltip" data-placement="top" title="Add to cart">go to buy <i class="fa fa-shopping-cart"></i> </a>
+                                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="fa fa-refresh"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- product single list item start -->
+                                </div> <!-- product single column end -->
+                            	
+                            	
+                            	</th:block>
+                            	
+                            	
+                            	
+                            </div>
+                        </div>
+                        <!-- product view wrapper area end -->
+
+                        <!-- start pagination area -->
+                        <div class="paginatoin-area text-center pt-28">
+                            <div class="row">
+                                <div class="col-12">
+                                <input id="indexPage" name="page" value="0" type="hidden">
+                                    <ul class="pagination-box">
+                                    
+                                        <li id="first" th:class="${(listProduct.number==0)?'disabled':''}">
+                                        <a class="Previous" onclick="firstPage(0)"><i class="fa fa-fast-backward fa-1x"></i></a>
+                                        </li>
+                                        
+                                        <li id="prev" th:class="${(listProduct.number==0)?'disabled':''}">
+                                        <a th:onclick="prevPage([(${listProduct.number-1})])"><i class="fa fa-backward fa-1x"></i></a>
+                                        </li>
+                                        
+                                        <li class="active font-weight-bold"><a >[[${listProduct.number+1}]]</a></li>
+                                        
+                                        <li id="next" th:class="${(listProduct.number>=listProduct.totalPages-1)?'disabled':''}">
+                                        <a th:onclick="nextPage([(${listProduct.number+1})])"><i class="fa fa-forward fa-1x"></i></a>
+                                        </li>
+                                        
+                                        <li id="last" th:class="${(listProduct.number>=listProduct.totalPages-1)?'disabled':''}">
+                                        <a th:onclick="lastPage([(${listProduct.totalPages-1})])"> <i class="fa fa-fast-forward fa-1x"></i> </a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end pagination area -->
+
+                 </th:block>
+                    <!-- product main wrap end -->

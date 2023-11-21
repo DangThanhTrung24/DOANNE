@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+                                    <li class="breadcrumb-item"><a th:href="@{|/products/${inforProduct.category.Namesearch}|}">[[${inforProduct.category.name}]]</a></li>
+									<li class="breadcrumb-item active" aria-current="page">[[${inforProduct.name}]]</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+	</th:block>
+	<th:block id="aside">
+					
+	</th:block>
+
+	<main>
+		<div class="row">
+                   			<div class="col-lg-9">
+                   				<div th:replace="user/detail/product-detail2.html"></div>
+                   			</div>
+                   			
+                   			<div class="col-lg-3">
+                   				<div th:replace="user/home/_bestseller2.html"></div>
+                   				<div th:replace="user/layout/orther/banner2.html"></div>
+                   				<div th:replace="user/home/_favorite-product2.html"></div>
+                   			</div>
+                   		</div>
+	</main>
+
+</body>
+<th:block id="material">
+	<script src="/assets/user/javascript/detail-product.js"></script>
+	<script src="/assets/user/angular/favorite-app.js"></script>
+</th:block>
+</html>

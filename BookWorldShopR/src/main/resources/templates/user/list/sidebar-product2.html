@@ -1,0 +1,76 @@
+
+<div class="shop-sidebar-wrap mt-md-28 mt-sm-28">
+	<!-- product size start -->
+	<div id="filter">
+
+
+		<div> 
+			<div class="sidebar-widget mb-30">
+				<div class="sidebar-title mb-10">
+					<h3>Price</h3>
+				</div>
+				<div class="sidebar-widget-body">
+					<ul>
+						
+						<li><label><i class="fa fa-angle-right"></i><input type="checkbox"
+							name="price" th:checked="${price=='1'}" value="1" /> 0 - 150k</label></li>
+						<li><label><i class="fa fa-angle-right"></i><input type="checkbox"
+							name="price" th:checked="${price=='2'}" value="2" /> 150k - 300k</label>
+						</li>
+						<li><label><i class="fa fa-angle-right"></i><input type="checkbox"
+							name="price" th:checked="${price=='3'}" value="3" /> 300k - 500k</label>
+						</li>
+						<li><label><i class="fa fa-angle-right"></i><input type="checkbox"
+							name="price" th:checked="${price=='4'}" value="4" /> 500k - 700k</label>
+						</li>
+						<li><label><i class="fa fa-angle-right"></i><input type="checkbox"
+							name="price" th:checked="${price=='5'}" value="5" /> 700k - Trở Lên</label></li>
+
+					</ul>
+				</div>
+			</div>
+			<!-- product size end -->
+
+			<!-- pricing filter start -->
+
+			<!-- pricing filter end -->
+
+
+
+			<!-- manufacturer start -->
+			<div class="sidebar-widget mb-30">
+				<div class="sidebar-title mb-10">
+					<h3>Manufacturers</h3>
+				</div>
+				<div class="sidebar-widget-body">
+					<ul>
+						<th:block th:each="item: ${listManu}">
+							<li> <label> <i class="fa fa-angle-right"></i><input class="mr-3"
+								type="checkbox" name="manuF" th:checked="${manuF== '' + item.id}"
+								th:value="${item.id}" th:text="${item.name}"/> </label></li>
+						</th:block>
+					</ul>
+				</div>
+			</div>
+			
+			
+			<!-- manufacturer end -->
+		</div>
+		
+		<div class="price-range-wrap">
+			<div class="range-slider">
+				<button class="filter-btn" type="submit">filter</button>
+			</div>
+		</div>
+
+	</div>
+	<!-- sidebar banner start -->
+	<div class="sidebar-widget mb-30">
+		<div class="img-container fix img-full">
+			<a href="#"><img src="assets/img/banner/banner_shop.jpg" alt=""></a>
+		</div>
+	</div>
+	<!-- sidebar banner end -->
+</div>
+
+<!-- sidebar end -->

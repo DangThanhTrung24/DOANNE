@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="breadcrumb-wrap">
+							<nav aria-label="breadcrumb">
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+									<li class="breadcrumb-item"><a th:href="@{/account}">Account</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Address</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9 m-auto">
+		<div class=" myaccount-content">
+		
+		
+			<h3>Billing Address</h3>
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover">
+					<tr th:each="item: ${listAddress}">
+						<td class="text-left"><strong>[[${item.Fullname}]]</strong><br />[[${item.detail}]]<br />Mobile: [[${item.phone}]]<br />[[${item.ward}]],
+							[[${item.district}]], [[${item.province}]]
+						</td>
+						<td class="text-center py-5">
+							<a th:href="@{|/account/address/update/${item.id}|}" class="check-btn sqr-btn " data-toggle="tooltip" title="Chỉnh sửa">
+							<i class="fa fa-edit"></i> </a>  
+							<a th:href="@{|/account/address/delete/${item.id}|}" class="check-btn sqr-btn" data-toggle="tooltip" title="Xóa">
+							<i class="fa fa-trash"></i> </a>
+						</td>
+					</tr>
+				</table>
+			</div>
+			</div>
+			<div class="buttons clearfix mt-3">
+				<div class="pull-left">
+					<a th:href="@{/account}" class="sqr-btn">back</a>
+				</div>
+				<div class="pull-right">
+					<a th:href="@{/account/address/add}" class="sqr-btn">+ address</a>
+				</div>
+			</div>
+		</div>
+	</main>
+
+</body>
+<th:block id="material">
+</th:block>
+</html>

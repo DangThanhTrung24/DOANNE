@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/_form :: dynamic(
+				~{::main},
+				~{::#javascriptResource},
+				~{::#cssResource}
+				)}">
+<th:block id="cssResource">
+	<!-- Plugins For This Page -->
+	<link rel="stylesheet"
+		href="/assets/admin/global/vendor/summernote/summernote.min599c.css?v4.0.2">
+</th:block>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main>
+		<div class="page">
+			<div class="page-header">
+				<h1 class="page-title">Tạo mô tả</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="../index.html">Trang
+							chủ</a></li>
+					<li class="breadcrumb-item"><a href="javascript:void(0)">Tiện
+							ích</a></li>
+					<li class="breadcrumb-item active">Thông số</li>
+				</ol>
+			</div>
+
+			<div class="page-content container-fluid">
+				<div class="row">
+					<div class="col-12">
+						<!-- Panel Standard Editor -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">Standard Editor</h3>
+							</div>
+							<div class="panel-body">
+								<div id="summernote" data-plugin="summernote">
+
+									<div id="product_tabs_description_contents">
+										<div id="desc_content" class="std">
+											<p style="text-align: justify;">
+												<strong>1000 Ph&aacute;t Minh &amp; Kh&aacute;m
+													Ph&aacute; Vĩ Đại</strong>
+											</p>
+
+											<p style="text-align: justify;">Ba triệu năm s&aacute;ng
+												tạo v&agrave; t&ograve; m&ograve; đ&atilde; tạo ra
+												h&agrave;ng chục ngh&igrave;n s&aacute;ng chế v&agrave;
+												ph&aacute;t minh.</p>
+
+											<p style="text-align: justify;">Những s&aacute;ng chế
+												v&agrave; ph&aacute;t minh từng đ&aacute;p ứng được
+												c&aacute;c nhu cầu cơ bản của con người - từ nhu cầu sinh
+												tồn đến nhu cầu hiểu biết - đ&atilde; giữ một vai tr&ograve;
+												lớn lao trong việc định h&igrave;nh thế giới của
+												ch&uacute;ng.</p>
+
+											<p style="text-align: justify;">Thường rất kh&oacute;
+												ph&acirc;n biệt ranh giới giữa s&aacute;ng chế v&agrave;
+												ph&aacute;t minh, v&agrave; kh&ocirc;ng c&oacute; c&aacute;i
+												n&agrave;o trong số đ&oacute; tạo ra trong một sớm một
+												chiều.</p>
+
+											<p style="text-align: justify;">C&oacute; thể
+												ch&uacute;ng ta sẽ sớm c&oacute; đủ hiểu biết để kiểm
+												so&aacute;t ch&iacute;nh cỗ m&aacute;y cuộc sống v&agrave;
+												điều n&agrave;y sẽ khiến tương lai c&oacute; nhiều thay đổi.</p>
+											<div class="clear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Panel Standard Editor -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Page -->
+	</main>
+</body>
+<th:block id="javascriptResource">
+	<!-- Plugins For This Page -->
+	<script
+		src="/assets/admin/global/vendor/summernote/summernote.min599c.js?v4.0.2"></script>
+
+	<script
+		src="/assets/admin/global/js/Plugin/summernote.min599c.js?v4.0.2"></script>
+	<script
+		src="/assets/admin/base/assets/examples/js/forms/editor-summernote.min599c.js?v4.0.2"></script>
+</th:block>
+</html>

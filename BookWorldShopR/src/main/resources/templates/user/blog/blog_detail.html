@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+            ~{::main},
+            ~{::#aside},
+            ~{::#material},
+            ~{::#breadcums}
+            )}">
+<head>
+<meta charset="UTF-8" />
+<title>Blogs</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="breadcrumb-wrap">
+							<nav aria-label="breadcrumb">
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+									<li class="breadcrumb-item"><a th:href="@{/blog}">Blog</a></li>
+									<li class="breadcrumb-item active" aria-current="page">[[${blogInfor.title}]]</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+
+	<th:block id="aside">
+	</th:block>
+
+	<main>
+		<div id="content" ng-app="contact-app" ng-controller="contact-ctrl">
+	
+		 <div class="blog-main-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 order-1 m-auto">
+                        <div class="blog-wrapper-inner">
+                            <div class="row blog-content-wrap">
+                                <!-- start single blog item -->
+                                <div class="col-lg-12">
+                                    <div class="blog-item mb-30">
+                                        <div class="blog-thumb img-full fix">
+                                            <img th:src="@{|/assets/img/imageBlog/${blogInfor.banner}|}"
+										th:title="${blogInfor.title}">
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-details">
+                                                <h3 class="blog-heading">[[${blogInfor.title}]]</h3>
+                                                <div class="blog-meta">
+                                                    <a class="author" href="#"><i class="icon-people"></i>writer: [[${blogUser.fullname}]]</a>
+                                                    <a class="post-time" href="#"><i class="icon-calendar"></i>- [[${blogInfor.Uploadday}]]</a>
+                                                </div>
+                                                <blockquote><p>[(${blogInfor.content})]</p></blockquote> 
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="blog-sharing text-center mt-34 mt-sm-34">
+                                            <h4>share this post:</h4>
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- start blog comment box -->
+                                    <div class="blog-comment-wrapper mb-sm-6">
+                                        <h3>leave a reply</h3>
+                                        <p>Your email address will not be published. Required fields are marked *</p>
+                            
+                                        <div id="notification" style="display: none;"
+								class="alert alert-dismissible">
+
+								<button type="button" class="close" data-dismiss="alert">×</button>
+							</div>
+							
+                                        <form method="post">
+                                            <div class="comment-post-box">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <label>comment</label>
+                                                        <textarea name="commnet" placeholder="Write a comment" id="input-review"></textarea>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-4 col-sm-6 mb-sm-20">
+                                                        <label>Name</label>
+                                                        <input type="text" class="coment-field" placeholder="Name" id="input-name">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-4 col-sm-6 mb-sm-20">
+                                                        <label>Email</label>
+                                                        <input type="text" class="coment-field" placeholder="Email" id="input-email">
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="coment-btn mt-20">
+                                                            <input class="sqr-btn" type="submit" name="submit" th:onclick="addContact()">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- start blog comment box -->
+                                </div>
+                                <!-- end single blog item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- blog main wrapper end -->
+        </div>
+	</main>
+</body>
+<th:block id="material">
+	<script src="/assets/user/angular/contact-app.js"></script>
+</th:block>
+</html>

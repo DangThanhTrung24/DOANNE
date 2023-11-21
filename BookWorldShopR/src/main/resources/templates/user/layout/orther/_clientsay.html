@@ -1,0 +1,22 @@
+<div class="main-sidebar testimonial-area pb-md-70 pb-sm-70" ng-app="contact-app" ng-controller="contact-ctrl">
+                                <div class="section-title-2 mb-28">
+                                    <h3>Clients Say</h3>
+                                </div> <!-- section title end -->
+                                <div ng-repeat="item in pager.items">
+                                
+                                    <div class="testimonial-item text-center">
+                                        <div class="testimonial-thumb">
+                                            <img src="assets/img/testimonial/andanh.png" alt="">
+                                        </div>
+                                        <div class="testimonial-content">
+                                            <h3><a href="#">{{item.name}}</a></h3>
+                                            <p>{{item.content}}</p>
+                                        </div>
+                                    </div> <!-- end single testimonial item -->
+                                </div>
+                                <div class="text-center">
+                                <a style="cursor: pointer;" ng-click="pager.prev()"><i class="fa fa-backward"></i></a>
+                                <a style="cursor: pointer;" ng-click="pager.next()"><i class="fa fa-forward"></i></a>
+                                </div>
+                                
+                            </div>

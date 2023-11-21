@@ -1,0 +1,140 @@
+<div class="category-tab-area mb-30 mt-md-16 mt-sm-16">
+                            <div class="category-tab">
+                                <ul class="nav">
+                                    <li>
+                                        <i class="fa fa-star-o"></i>
+                                    </li>
+                                    <li>
+                                        <a class="active" data-toggle="tab" href="#tab_one" onclick="$('a[href=\'.feature-category-area\']').trigger('click'); $('body,html').animate({scrollTop: $('.category-tab-area').offset().top}, 1000);">new</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tab_two" onclick="$('a[href=\'.feature-category-area\']').trigger('click'); $('body,html').animate({scrollTop: $('.feature-category-area').offset().top}, 1000);">featured</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tab_three" onclick="$('a[href=\'.hot-deals-wrap2\']').trigger('click'); $('body,html').animate({scrollTop: $('.hot-deals-wrap2').offset().top}, 1100);">sale</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tab_one">
+                                <div class="feature-category-carousel-wrapper">
+                                    <div class="container">
+                                    
+                                    
+                                    
+                                    
+                                        <div class="featured-carousel-active2 row arrow-space slick-arrow-style" data-row="2">
+                                        
+                                        <th:block th:each="item: ${latestProduct}">
+                                        
+                                        
+                                        <th:block th:each="item2: ${item}">
+                                        
+                                        
+                                            <!-- product single item start -->
+                                            <div class="col">
+                                                <div class="product-item fix mb-30">
+                                                    <div class="product-thumb">
+                                                    
+                                                        <a th:href="@{|/product/${item2.product.Namesearch}|}">
+                                                            <img th:src="@{|/assets/img/imageProducts/${item2.product.image1}|}" class="img-pri" alt="" height="210px" >
+                                                            <img th:src="@{|/assets/img/imageProducts/${item2.product.image2}|}" class="img-sec" alt="" height="210px" >
+                                                        </a>
+                                                        
+                                                        
+                                                        <th:block th:if="${item2.product.sales != 0}">
+                                                        <div class="product-label">
+                                                            <span>sale</span>
+                                                        </div>
+                                                        </th:block>
+                                                        
+                                                        <th:block th:fragment="item_id(id)">
+                                                        <div class="product-action-link">
+                                                            <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                                            <a th:href="@{|/product/${item2.product.Namesearch}|}" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+                                                            <a th:attr="ng-click=@{|cart.add(${item2.product.id})|}" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                                        </div>
+                                                        </th:block>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <h4 ><a th:href="@{|/product/${item2.product.Namesearch}|}"  style="white-space: nowrap; overflow: hidden;">[[${item2.product.name}]]</a></h4>
+                                                        <div class="pricebox">
+                                                        
+                                                        
+                                                        	<div class="row">
+                                                        		<div class="col-lg-6">
+                                                        			<th:block th:if="${item2.product.sales != 0}">
+																		<span style="text-decoration: line-through;">[[${#numbers.formatInteger(item2.product.sales,3,'POINT')}]]₫</span>
+																	</th:block>
+                                                        		</div>
+                                                        		<div class="col-lg-6">
+                                                        			<span class="regular-price">[[${#numbers.formatInteger(item2.product.price,3,'POINT')}]]₫</span>
+                                                        		</div>
+                                                        	</div>
+                                                        
+                                                            
+                                                            
+                                                            <div class="ratings">
+                                                            
+                                                             	<th:block th:if="${item2.totalStar != 0}">
+                                                            	<th:block th:each="i: ${#numbers.sequence(1, item2.totalStar)}"> 
+                                                            	
+																<span class="fa fa-stack">
+																	<i class="fa fa-star fa-stack-1x"></i>
+																	<i class="fa fa-star-o fa-stack-1x"></i>
+																</span>
+														 
+																</th:block>
+														 		</th:block> 
+														 
+																<th:block th:if="${item2.totalStar != 5}">
+																<th:block th:each="i: ${#numbers.sequence(1, 5 - item2.totalStar)}"> 
+																
+																	<span class="fa fa-stack">	
+																		<i class="fa fa-star-o fa-stack-1x"></i>
+																	</span>
+																	
+															    </th:block>
+																</th:block>
+                                                            
+                                                               <!--  <span class="good"><i class="fa fa-star"></i></span>
+                                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                                <span><i class="fa fa-star"></i></span>
+                                                                <div class="pro-review">
+                                                                    <span>1 review(s)</span>
+                                                                </div> -->
+                                                                
+                                                               
+                                                                
+                                                            </div>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- product single item end -->
+                                            
+                                            
+                                            
+                                     
+                                         </th:block>
+                                         
+                                         </th:block>
+                                         
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>

@@ -1,0 +1,102 @@
+<div class="feature-category-area">
+                            <div class="section-title mb-30">
+                                <div class="title-icon">
+                                    <i class="fa fa-gift"></i>
+                                </div>
+                                <h3>Featured Product</h3>
+                            </div> 
+                            <!-- section title end -->
+                            <!-- featured category start -->
+                            <div class="container">
+                                <div class="featured-carousel-active2 row slick-arrow-style" data-row="2">
+                                
+                                
+                                
+                                <th:block th:each="item: ${featuredProduct}">
+                                
+                                
+                                
+                                    <!-- product single item start -->
+                                    <div class="col">
+                                        <div class="product-item fix mb-30">
+                                            <div class="product-thumb">
+                                                <a th:href="@{|/product/${item.product.Namesearch}|}">
+                                                    <img th:src="@{|/assets/img/imageProducts/${item.product.image1}|}" class="img-pri" alt="" height="210px" >
+                                                    <img th:src="@{|/assets/img/imageProducts/${item.product.image2}|}" class="img-sec" alt="" height="210px" >
+                                                </a>
+                                                
+                                                
+                                                <th:block th:if="${item.product.sales != 0}">
+                                                <div class="product-label">
+                                                    <span>sale</span>
+                                                </div>
+                                                </th:block>
+                                                
+                                                <th:block th:fragment="item_id(id)">
+                                                <div class="product-action-link">
+                                                    <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                                    <a th:href="@{|/product/${item.product.Namesearch}|}" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+                                                    <a th:attr="ng-click=@{|cart.add(${item.product.id})|}" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                                </div>
+                                                </th:block>
+                                                
+                                            </div>
+                                            <div class="product-content">
+                                            
+                                                <h4><a th:href="@{|/product/${item.product.Namesearch}|}" style="">[[${item.product.name}]]</a></h4>
+                                            
+                                                <div class="pricebox">
+                                                
+                                                
+                                                	<div class="row">
+                                                        <div class="col-lg-6">
+                                                        		<th:block th:if="${item.product.sales != 0}">
+																	<span style="text-decoration: line-through;">[[${#numbers.formatInteger(item.product.sales,3,'POINT')}]]₫</span>
+																</th:block>
+                                                       	</div>
+                                                        <div class="col-lg-6">			
+                                                        		<span class="regular-price">[[${#numbers.formatInteger(item.product.price,3,'POINT')}]]₫</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="ratings">
+                                                       
+                                                       
+                                                             	<th:block th:if="${item.totalStar != 0}">
+                                                            	<th:block th:each="i: ${#numbers.sequence(1, item.totalStar)}"> 
+                                                            	
+																<span class="fa fa-stack">
+																	<i class="fa fa-star fa-stack-1x"></i>
+																	<i class="fa fa-star-o fa-stack-1x"></i>
+																</span>
+														 
+																</th:block>
+														 		</th:block> 
+														 
+																<th:block th:if="${item.totalStar != 5}">
+																<th:block th:each="i: ${#numbers.sequence(1, 5 - item.totalStar)}"> 
+																
+																	<span class="fa fa-stack">	
+																		<i class="fa fa-star-o fa-stack-1x"></i>
+																	</span>
+																	
+															    </th:block>
+																</th:block>
+                                                       
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- product single item end -->
+                                 
+                                   
+                                   </th:block>
+                                   
+                                   
+                                </div>
+                            </div>
+                        </div>

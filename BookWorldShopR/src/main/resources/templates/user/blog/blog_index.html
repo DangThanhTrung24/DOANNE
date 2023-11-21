@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="breadcrumb-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="breadcrumb-wrap">
+							<nav aria-label="breadcrumb">
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Blog</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+	<th:block id="aside">
+	</th:block>
+
+	<main>
+		<div class="blog-main-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="blog-wrapper-inner">
+                            <div class="row">
+                                <!-- start single blog item -->
+                                
+                                <th:block th:each="item: ${blogList}">
+                                
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="blog-item mb-26">
+                                        <div class="blog-thumb img-full fix">
+                                            <a th:href="@{|/blog/${item.Namesearch}|}">
+                                                <img th:src="@{|/assets/img/imageBlog/${item.logo}|}" alt="" height="300px">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <h3><a th:href="@{|/blog/${item.Namesearch}|}" >[[${item.title}]]]</a></h3>
+                                            <div class="blog-meta">
+                                                <span class="posted-author">by: admin</span>
+                                                <span class="post-date">[[${item.Uploadday}]]</span>
+                                            </div>
+                                            <p th:text="${#strings.length(item.description) > 100 ? #strings.substring(item.description, 0, 120) + '...' : item.description}"></p>
+                                        </div>
+                                        <a th:href="@{|/blog/${item.Namesearch}|}">read more <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                
+                                </th:block>
+                                <!-- end single blog item -->
+                            </div>
+                        </div>
+                        <!-- start pagination area -->
+                        <form id="formPage" action="" method="get">
+                        <div class="paginatoin-area text-center pt-30 pb-30">
+                            <div class="row">
+                                <div class="col-12">
+                                <input id="indexPage" name="p" value="0" type="hidden">
+                                    <ul class="pagination-box">
+                                        <li id="first" 	th:class="${(blogList.number==0)?'disabled':''}">
+                                        <a class="Previous" onclick="firstPage(0)"><i class="fa fa-fast-backward fa-1x"></i></a>
+                                        </li>
+                                        <li id="prev" th:class="${(blogList.number==0)?'disabled':''}">
+                                        <a th:onclick="prevPage([(${blogList.number-1})])"><i class="fa fa-backward fa-1x"></i></a>
+                                        </li>
+                                        <li class="active font-weight-bold"><a >[[${blogList.number+1}]]</a></li>
+                                        <li id="next" th:class="${(blogList.number>=blogList.totalPages-1)?'disabled':''}">
+                                        <a th:onclick="nextPage([(${blogList.number+1})])"><i class="fa fa-forward fa-1x"></i></a>
+                                        </li>
+                                        <li id="last" th:class="${(blogList.number>=blogList.totalPages-1)?'disabled':''}">
+                                        <a th:onclick="lastPage([(${blogList.totalPages-1})])"><i class="fa fa-fast-forward fa-1x"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        <!-- end pagination area -->
+                    </div>
+                </div>
+            </div>
+        </div>
+	</main>
+
+</body>
+<th:block id="material">
+	<script src="/assets/user/javascript/list-product.js"></script>
+</th:block>
+</html>

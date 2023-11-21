@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main,aside,material,breadcums)">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>BookWorld R</title>
+	<link rel="shortcut icon" href="/assets/img/logo/logo.ico" type="image/x-icon" />
+	<script src="/assets/user/catalog/view/javascript/jquery/jquery-2.1.1.min.js"></script>
+	
+	
+	
+	
+	
+	<!-- Bootstrap CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Font-Awesome CSS -->
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+	<!-- helper class css -->
+    <link href="/assets/css/helper.min.css" rel="stylesheet">
+	<!-- Plugins CSS -->
+    <link href="/assets/css/plugins.css" rel="stylesheet">
+	<!-- Main Style CSS -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+  <!-- Angular -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>	
+</head>
+
+<body class="common-home">
+
+	<!-- color switcher start -->
+  	<div th:replace="/user/layout/orther/_extension.html"></div>
+    <!-- color switcher end -->
+	
+	<div class="wrapper box-layout">
+
+	<th:block th:replace="/user/layout/_header.html"></th:block> 
+	
+		<th:block th:replace="${breadcums}"></th:block>
+	
+	
+		 
+        <div class="page-wrapper pt-20">
+            <div class="container">
+            
+                
+                    <!-- sidebar start -->
+                     
+
+						
+
+                   
+                        <th:block th:replace="${main}"></th:block>
+             
+            </div>
+        </div>
+     
+	
+	
+	
+	<!-- brand area start -->
+        <div th:replace="/user/layout/_brand.html"></div>
+        <!-- brand area end -->
+	
+	<div th:replace="/user/layout/_footer2.html"></div>
+	
+	
+	
+	</div>
+	
+	<!-- top scroll -->
+	<!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+</body>
+
+
+<!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+    <script src="/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <!-- Jquery Min Js -->
+    <script src="/assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <!-- Popper Min Js -->
+    <script src="/assets/js/vendor/popper.min.js"></script>
+    <!-- Bootstrap Min Js -->
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <!-- Plugins Js-->
+    <script src="/assets/js/plugins.js"></script>
+    <!-- Ajax Mail Js -->
+    <script src="/assets/js/ajax-mail.js"></script>
+<!-- Active Js -->
+    <script src="/assets/js/main.js"></script>
+    <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
+    <script src="/assets/js/switcher.js"></script>
+
+<script src="/assets/user/javascript/search-product.js"></script>
+<th:block th:replace="${material}"></th:block>
+</html>

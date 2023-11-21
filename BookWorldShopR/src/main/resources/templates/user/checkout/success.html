@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+</head>
+<body>
+	<th:block id="breadcums">
+		<div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+                                    <li class="breadcrumb-item"><a th:href="@{/products}">cart</a></li>
+                                    <li class="breadcrumb-item"><a th:href="@{/shop/cart}">checkout</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">success</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</th:block>
+
+	<main>
+		<div id="content" class="col-sm-9">
+			<h1>Đơn hàng của bạn đã được đặt!</h1>
+			<p>Đơn hàng của bạn đã được xử lý thành công!</p>
+			<p>
+				Bạn có thể xem lịch sử đặt hàng bằng cách vào trang <a
+					style="color: #ffc843;" th:href="@{/account}">tài khoản</a> và nhấp
+				vào <a style="color: #ffc843;" th:href="@{/account/order}">lịch sử</a>.
+			</p>
+			<p>Nếu có câu hỏi gì. Vui lòng liên hệ <a
+					style="color: #ffc843;" th:href="@{/contact}">chúng tôi</a> để nhận được sự tư vấn.</p>
+			<p>Trân trọng cảm ơn!</p>
+			<div class="buttons">
+				<div class="pull-right">
+					<a th:href="@{/index}" class="sqr-btn">Tiếp tục</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+<th:block id="material">
+	<script src="/assets/user/angular/register.js"></script>
+</th:block>
+</html>

@@ -1,0 +1,224 @@
+<!-- header area start -->
+        <header>
+
+            <!-- header top start -->
+            <div class="header-top-area bg-gray text-center text-md-left">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-5">
+                            <div class="header-call-action">
+                                <a href="#">
+                                    <i class="fa fa-envelope"></i>
+                                    [[${information.email}]]
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-phone"></i>
+                                    [[${information.phone}]]
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-7">
+                            <div class="header-top-right float-md-right float-none">
+                                <nav>
+                                    <ul>
+                                    	<li class="">
+                                    	<th:block th:if="${#request.remoteUser}">
+                                            <a th:href="@{/account}" style="text-transform: lowercase !important; color: red; font-weight: bold">
+                                            Welcome [[${#request.remoteUser}]] </a>
+                                        </th:block>    
+                                        </li>
+                                    
+                                        <li>
+                                            <div class="dropdown header-top-dropdown">
+                                                <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    
+                                                    <th:block th:unless="${#request.remoteUser}">
+                                                    login - register
+                                                    </th:block>
+                                                    <th:block th:if="${#request.remoteUser}">
+                                                    my account
+                                                    </th:block>
+                                                    
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="myaccount">
+                                                
+                                                <th:block th:if="${#request.remoteUser}">
+                                                <th:block th:if="${#request.isUserInRole('ROLE_ADMIN') || #request.isUserInRole('ROLE_DIRECTOR')}">
+                                                	<a class="dropdown-item" th:href="@{/admin/index}">managerment</a>
+                                                </th:block>
+                                                	<a class="dropdown-item" th:href="@{/account}">my account</a>
+                                                	<a class="dropdown-item" th:href="@{/logout}"> logout</a>
+                                                </th:block>
+                                                
+                                                <th:block th:unless="${#request.remoteUser}">
+                                                    <a class="dropdown-item" th:href="@{/login}"> login</a>
+                                                    <a class="dropdown-item" th:href="@{/register}">register</a>
+                                                    <a class="dropdown-item" th:href="@{/forget-password}">Forgot Password</a>
+                                                </th:block>    
+                                                    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <th:block th:if="${#request.remoteUser}">
+                                        <li>
+                                            <a th:href="@{/account/favorite}">my favorite</a>
+                                        </li>
+                                        </th:block>
+                                        
+                                        <li>
+                                            <a th:href="@{/shop/cart}">my cart</a>
+                                        </li>
+                                        
+                                        
+                                        
+                                        <th:block th:if="${#request.remoteUser}">
+                                        <li>
+                                            <a href="#">checkout</a>
+                                        </li>
+                                        </th:block>
+                                        
+                                        <li>
+                                            <div class="dropdown header-top-dropdown">
+                                                <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    
+                                                    
+                                                    InformationShop
+                                                   
+                                                    
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="myaccount">
+                                                
+                                                <a class="dropdown-item" th:href="@{/about}">about us</a>
+                                                <a class="dropdown-item" th:href="@{/delivery}">Shipment Details</a>
+                                                <a class="dropdown-item" th:href="@{/termCondition}">condition</a>
+                                                    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header top end -->
+
+            <!-- header middle start -->
+            <div class="header-middle-area pt-20 pb-20">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3">
+                            <div class="brand-logo">
+                                <a th:href="@{/}">
+                                    <img th:src="@{|/assets/img/logo/${information.logo}|}" alt="brand logo" height="180px" width="180px">
+                                </a>
+                            </div>
+                        </div> <!-- end logo area -->
+                        <div class="col-lg-9">
+                            <div class="header-middle-right">
+                                <div class="header-middle-shipping mb-20">
+                                    <div class="single-block-shipping">
+                                        <div class="shipping-icon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
+                                        <div class="shipping-content">
+                                            <h5>Working time</h5>
+                                            <span>Mon- Sun: [[${information.timeopen}]]</span>
+                                        </div>
+                                    </div> <!-- end single shipping -->
+                                    <div class="single-block-shipping">
+                                        <div class="shipping-icon">
+                                            <i class="fa fa-truck"></i>
+                                        </div>
+                                        <div class="shipping-content">
+                                            <h5>free shipping</h5>
+                                            <span>On order over $199</span>
+                                        </div>
+                                    </div> <!-- end single shipping -->
+                                    <div class="single-block-shipping">
+                                        <div class="shipping-icon">
+                                            <i class="fa fa-money"></i>
+                                        </div>
+                                        <div class="shipping-content">
+                                            <h5>money back 100%</h5>
+                                            <span>Within 30 Days after delivery</span>
+                                        </div>
+                                    </div> <!-- end single shipping -->
+                                </div>
+                                <div class="header-middle-block">
+                                
+                                
+                                    <form class="header-middle-searchbox" action="/search" method="get">
+                                        <input type="text" placeholder="Search..." id="search" value="" name="namePrd">
+                                        <button class="search-btn" type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+                                    </form>
+                                    
+                                    
+                                    <div class="header-mini-cart">
+                                        <div class="mini-cart-btn">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            <span class="cart-notification">[[${session.sessionProduct.countAllProduct}]]</span>
+                                        </div>
+                                        <div class="cart-total-price">
+                                            <span>total</span>
+                                           [[${#numbers.formatInteger(session.sessionProduct.amount,session.sessionProduct.amount==0?0:3,'POINT')}]]₫
+                                        </div>
+                                        
+                                        <th:block th:if="${session.sessionProduct.getCount() != 0}">
+                                        <ul class="cart-list">
+                                        
+                                            <th:block th:each="item: ${session.sessionProduct.items}">
+                                            
+                                            <li>
+                                                <div class="cart-img">
+                                                    <a href="product-details.html"><img th:src="@{|/assets/img/imageProducts/${item.product.image1}|}"
+                                                            alt=""></a>
+                                                </div>
+                                                <div class="cart-info">
+                                                    <h4><a th:href="@{|/product/${item.product.namesearch}|}">[[${item.product.name}]]</a></h4>
+                                                    <span>[[${item.quality}]] x [[${#numbers.formatInteger(item.product.price,3,'POINT')}]]₫</span>
+                                                </div>
+                                                <form action="" method="post">
+                                                <div class="del-icon">
+                                                <button th:formaction="@{|/cart/remove/${item.id}|}"><i class="fa fa-times"></i></button>
+                                                </div>
+                                                </form>
+                                            </li>
+                                            
+                                            </th:block>
+                                            
+                                            <li class="mini-cart-price">
+                                                <span class="subtotal">subtotal : </span>
+                                                <span class="subtotal-price">[[${#numbers.formatInteger(session.sessionProduct.amount,3,'POINT')}]]₫</span>
+                                            </li>
+                                            <li class="checkout-btn">
+                                                <a href="#">checkout</a>
+                                            </li>
+                                            <li class="checkout-btn">
+                                                <a href="/shop/cart">MyCart</a>
+                                            </li>
+                                        </ul>
+                                        </th:block>
+                                        <th:block th:unless="${session.sessionProduct.getCount() != 0}">
+                                        <ul class="cart-list font-weight-bold">There are no products in your cart!</ul>
+                                        </th:block>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header middle end -->
+
+            <div th:replace="user/layout/_menu2.html"></div>
+
+        </header>

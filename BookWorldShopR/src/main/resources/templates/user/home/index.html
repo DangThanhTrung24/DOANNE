@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/user/layout/_form :: dynamic(
+				~{::main},
+				~{::#aside},
+				~{::#material},
+				~{::#breadcums}
+				)}">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<th:block id="breadcums">
+	<div th:replace="user/layout/orther/_banner.html"></div>
+	</th:block>
+	
+	<th:block id="aside">
+		
+	</th:block>
+
+	<main>
+		<div class="row">
+                   			<div class="col-lg-3">
+                   				<div th:replace="user/layout/orther/banner2.html"></div>
+                    	
+                    			<div th:replace="user/home/_bestseller2.html"></div>
+                    			
+                    			<div th:replace="user/layout/orther/banner2-1.html"></div>
+                    			
+                    			<div th:replace="user/home/_favorite-product2.html"></div>
+                   		 	
+                   			 	<div th:replace="user/layout/orther/_clientsay.html"></div>
+                   			</div>
+                   			
+                   			<div class="col-lg-9">
+                   				<div th:replace="user/home/_lastest-products2.html"></div>
+                   		
+                		   		<div th:replace="user/layout/orther/_banner3.html"></div>
+                   		
+              		     		<div th:replace="user/home/_featured-products2.html"></div>
+                   			</div>
+                   			<div class="latest-area pt-36 pt-lg-0 pt-md-0 pt-sm-0">
+        			 	   <div class="container">
+     		      		      <div class="row">
+     		      		      
+     		      		      <!-- blog area start -->
+								<div th:replace="user/blog/_blog.html"></div>
+							  <!-- blog area end -->
+							  
+							  <!-- favorite products area start -->
+								<div th:replace="user/home/_promotional-products2.html"></div>
+							  <!-- favorite products area end -->
+                        
+						 	  </div>
+          				   </div>
+    	 			    </div>
+                   		</div>
+	</main>
+
+</body>
+<th:block id="material">
+	<script src="/assets/user/angular/contact-app.js"></script>
+</th:block>
+</html>
